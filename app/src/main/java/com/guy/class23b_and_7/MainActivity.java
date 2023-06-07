@@ -13,11 +13,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MapPathImageView pathImageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        pathImageView = findViewById(R.id.pathImageView);
 
         /*
         32.044711192534926, 34.81335450750937
@@ -56,8 +59,15 @@ public class MainActivity extends AppCompatActivity {
         latLngList.add(new LatLng(32.05196907227955, 34.83767955216924, 90f));
         latLngList.add(new LatLng(32.05044357845347, 34.842042788879525, 70f));
 
+
         Bitmap bitmap = PathImageGenerator.generatePath(latLngList);
         ImageView imageView = findViewById(R.id.imageView);
         imageView.setImageBitmap(bitmap);
+
+
+
+
+
+        pathImageView.setPath(latLngList);
     }
 }
